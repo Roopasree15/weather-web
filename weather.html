@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WeatherNow — Simple Weather App</title>
+  <meta name="description" content="A clean, responsive weather app built with just HTML and CSS." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f19;--card:#111827;--muted:#94a3b8;--text:#e5e7eb;--brand:#38bdf8;--brand-2:#3b82f6;--ring:0 0 0 4px color-mix(in srgb,var(--brand) 25%,transparent);--radius:18px;--shadow:0 12px 30px rgba(2,6,23,.35)
+    }
+    @media (prefers-color-scheme:light){:root{--bg:#f0f9ff;--card:#ffffff;--muted:#475569;--text:#0f172a;--shadow:0 12px 30px rgba(15,23,42,.08)}}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;line-height:1.6;color:var(--text);background:var(--bg)}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(900px,92%);margin-inline:auto}
+    header{padding:1rem 0;text-align:center}
+    .brand{display:inline-flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.4rem}
+    .logo{width:36px;height:36px;border-radius:10px;background:conic-gradient(from 180deg,var(--brand),var(--brand-2),var(--brand));box-shadow:var(--shadow)}
+
+    .hero{padding:4rem 0;text-align:center}
+    .title{font-size:clamp(2rem,3.8vw + 1rem,3rem);margin:.7rem 0;line-height:1.1;letter-spacing:-.02em}
+    .subtitle{color:var(--muted);font-size:1.1rem}
+
+    .weather-card{margin:2rem auto 0;padding:2rem;border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);max-width:500px}
+    .weather-card h2{margin:0;font-size:1.8rem}
+    .weather-card p{margin:.3rem 0;color:var(--muted)}
+    .temp{font-size:3rem;font-weight:700;margin:.8rem 0;color:var(--brand)}
+    .details{display:flex;justify-content:space-between;gap:1rem;margin-top:1rem}
+    .detail{background:color-mix(in srgb,var(--brand) 10%,transparent);padding:1rem;border-radius:var(--radius);flex:1;text-align:center}
+    .detail span{display:block;font-weight:700;font-size:1.2rem;color:var(--brand-2)}
+
+    footer{padding:2rem 0;text-align:center;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#top" class="brand" aria-label="WeatherNow Home">
+      <span class="logo" aria-hidden="true"></span>
+      <span>WeatherNow</span>
+    </a>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <h1 class="title">Check the Weather Instantly</h1>
+      <p class="subtitle">Simple, clean, and responsive weather app UI</p>
+      <div class="weather-card">
+        <h2>San Francisco</h2>
+        <p>Cloudy</p>
+        <div class="temp">18°C</div>
+        <div class="details">
+          <div class="detail"><span>72%</span>Humidity</div>
+          <div class="detail"><span>14 km/h</span>Wind</div>
+          <div class="detail"><span>1015 hPa</span>Pressure</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="y"></span> WeatherNow. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
